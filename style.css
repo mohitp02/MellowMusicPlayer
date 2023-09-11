@@ -158,3 +158,9 @@ nav ul li{
 #masterPlay{
     cursor: pointer;
 }
+#prev{
+    cursor: pointer;
+}
+#next{
+    cursor:pointer;
+}

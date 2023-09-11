@@ -54,7 +54,7 @@ Array.from(document.getElementsByClassName("fa-regular")).forEach((element)=>{
     element.addEventListener("click",(e)=>{
         // let ind=parseInt(e.target.id);
 masterPlay.addEventListener("click",()=>{
-    if(m1.paused || m1.currentTime<0){
+    if(m1.paused || m1.currentTime<=0){
         m1.play();
         masterPlay.classList.remove("fa-play");
         masterPlay.classList.add("fa-pause");
@@ -75,3 +75,52 @@ masterPlay.addEventListener("click",()=>{
 })
 })
 
+var join=document.getElementsByClassName(".text");
+console.log(join);
+for(let i=1;i<join.length;i++){
+    
+    document.getElementsByClassName(".text")[i].addEventListener("click",()=>{
+        m1.src=`./${i}.mp3`  
+        m1.play();
+        masterPlay.classList.remove("fa-play");
+        masterPlay.classList.add("fa-pause");
+        gif.style.opacity=1;
+        e.target.classList.add("fa-circle-pause");
+        e.target.classList.remove("fa-circle-play");
+    })
+}
+
+
+const her=document.getElementById("next");
+her.addEventListener("click",()=>{
+    if(songIndex>6){
+        songIndex=0;
+    }
+    else
+    {
+        songIndex +=1;
+    }
+    m1.src=`./${songIndex}.mp3`  
+    m1.play();
+    masterPlay.classList.remove("fa-play");
+    masterPlay.classList.add("fa-pause");
+    gif.style.opacity=1;
+   
+})
+
+const hero=document.getElementById("prev");
+hero.addEventListener("click",()=>{
+    if(songIndex<=0){
+        songIndex=6;
+    }
+    else
+    {
+        songIndex -=1;
+    }
+    m1.src=`./${songIndex}.mp3`  
+    m1.play();
+    masterPlay.classList.remove("fa-play");
+    masterPlay.classList.add("fa-pause");
+    gif.style.opacity=1;
+
+})
